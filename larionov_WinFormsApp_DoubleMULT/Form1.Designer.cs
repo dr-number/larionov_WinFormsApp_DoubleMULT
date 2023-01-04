@@ -38,11 +38,11 @@
             // 
             // buttonSendText
             // 
-            this.buttonSendText.Location = new System.Drawing.Point(520, 415);
+            this.buttonSendText.Location = new System.Drawing.Point(504, 415);
             this.buttonSendText.Name = "buttonSendText";
-            this.buttonSendText.Size = new System.Drawing.Size(118, 23);
+            this.buttonSendText.Size = new System.Drawing.Size(134, 23);
             this.buttonSendText.TabIndex = 1;
-            this.buttonSendText.Text = "Отправить текст";
+            this.buttonSendText.Text = "Отправить операнд";
             this.buttonSendText.UseVisualStyleBackColor = true;
             this.buttonSendText.Click += new System.EventHandler(this.buttonSendText_Click);
             // 
@@ -90,7 +90,7 @@
             this.maskedTextBox1.Location = new System.Drawing.Point(14, 415);
             this.maskedTextBox1.Mask = "99999.99";
             this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(491, 23);
+            this.maskedTextBox1.Size = new System.Drawing.Size(484, 23);
             this.maskedTextBox1.TabIndex = 8;
             // 
             // Form1
