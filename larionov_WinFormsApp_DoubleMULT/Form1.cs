@@ -29,10 +29,10 @@ namespace larionov_WinFormsApp_DoubleMULT
 
             int size = listBox_output.Items.Count;
             bool isFirstCalculate = size == 1;
-            int countCalculate = size % 3;
-            bool isNotFirstCalculate = size != 0 && !isFirstCalculate && (size - (countCalculate * 3)) + 1 == 2;
+            int countCalculate = size / 3;
+            int numberOperand = (size - countCalculate * 3) + 1;
+            bool isNotFirstCalculate = size != 0 && !isFirstCalculate && numberOperand == 2;
 
-            int numberOperand = size % 2 == 0 ? 1 : 2;
             string newString = $"Операнд №{numberOperand}: {Convert.ToDouble(maskedTextBox1.Text)}";
 
             listBox_output.Items.Add(newString);
