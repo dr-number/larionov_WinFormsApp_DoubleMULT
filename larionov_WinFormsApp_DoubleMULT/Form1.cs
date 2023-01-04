@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace larionov_WinFormsApp_DoubleMULT
 {
     public partial class Form1 : Form
@@ -28,8 +30,9 @@ namespace larionov_WinFormsApp_DoubleMULT
             int size = listBox_output.Items.Count;
             int numberOperand = size % 2 == 0 ? 1 : 2;
 
-            listBox_output.Items.Add(Convert.ToDouble(maskedTextBox1.Text));
-            label_info.Text = $"Операнд №{numberOperand}: {listBox_output.Items[size]}";
+            string newString = $"Операнд №{numberOperand}: {Convert.ToDouble(maskedTextBox1.Text)}";
+            listBox_output.Items.Add(newString);
+            label_info.Text = newString;
 
             bool isFirstCalculate = size + 1 == 2;
 
@@ -49,8 +52,12 @@ namespace larionov_WinFormsApp_DoubleMULT
                     index2 = size - 1;
                 }
 
-                double operand1 = Convert.ToDouble(listBox_output.Items[index1]);
-                double operand2 = Convert.ToDouble(listBox_output.Items[index2]);
+                Regex reg = new Regex(@"?<=#");
+                MatchCollection operandReg1 = reg.Matches(Convert.ToString(listBox_output.Items[index1]));
+                MatchCollection operandReg2 = reg.Matches(Convert.ToString(listBox_output.Items[index2]));
+
+                double operand1 = Convert.ToDouble(operandReg1[0]);
+                double operand2 = Convert.ToDouble(operandReg2[0]);
 
                 string result = $"Результат: {operand1} * {operand2} = {operand1 * operand2}";
                 listBox_output.Items.Add(result);
