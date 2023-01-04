@@ -28,32 +28,20 @@ namespace larionov_WinFormsApp_DoubleMULT
             }
 
             int size = listBox_output.Items.Count;
-            int numberOperand = size % 2 == 0 ? 1 : 2;
+            bool isFirstCalculate = size == 2;
+            int countCalculate = size % 3;
+            bool isNotFirstCalculate = size != 0 && !isFirstCalculate && size - (countCalculate * 3) % 2 == 0;
 
+            int numberOperand = size % 2 == 0 ? 2 : 1;
+            
             string newString = $"Операнд №{numberOperand}: {Convert.ToDouble(maskedTextBox1.Text)}";
             listBox_output.Items.Add(newString);
             label_info.Text = newString;
 
-            bool isFirstCalculate = size + 1 == 2;
-
-            if (isFirstCalculate || size + 1 % 3 == 0)
+            if (isNotFirstCalculate || isFirstCalculate)
             {
-                int index1;
-                int index2;
-
-                if (isFirstCalculate)
-                {
-                    index1 = 0;
-                    index2 = 1;
-                }
-                else
-                {
-                    index1 = size - 2;
-                    index2 = size - 1;
-                }
-
-                string operandStr1 = Convert.ToString(listBox_output.Items[index1]);
-                string operandStr2 = Convert.ToString(listBox_output.Items[index2]);
+                string operandStr1 = Convert.ToString(listBox_output.Items[size - 1]);
+                string operandStr2 = Convert.ToString(listBox_output.Items[size]);
 
                 double operand1 = Convert.ToDouble(operandStr1.Substring(operandStr1.IndexOf(": ") + 1));
                 double operand2 = Convert.ToDouble(operandStr2.Substring(operandStr2.IndexOf(": ") + 1));
