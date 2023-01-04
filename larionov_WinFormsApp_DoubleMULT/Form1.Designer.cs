@@ -1,4 +1,4 @@
-﻿namespace larionov_WinFormsApp_COPY_TXT
+﻿namespace larionov_WinFormsApp_DoubleMULT
 {
     partial class Form1
     {
@@ -28,22 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonSendText = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.label_output = new System.Windows.Forms.Label();
             this.label_info = new System.Windows.Forms.Label();
             this.listBox_output = new System.Windows.Forms.ListBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 415);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Введите текст...";
-            this.textBox1.Size = new System.Drawing.Size(493, 23);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyUp);
             // 
             // buttonSendText
             // 
@@ -94,21 +85,28 @@
             this.listBox_output.Size = new System.Drawing.Size(705, 364);
             this.listBox_output.TabIndex = 7;
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(14, 415);
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(491, 23);
+            this.maskedTextBox1.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(729, 450);
+            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.listBox_output);
             this.Controls.Add(this.label_info);
             this.Controls.Add(this.label_output);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonSendText);
-            this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "COPY.TXT Ларионов гр. 210з";
+            this.Text = "DoubleMULT Ларионов гр. 210з";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -116,12 +114,11 @@
         }
 
         #endregion
-
-        private TextBox textBox1;
         private Button buttonSendText;
         private Button buttonExit;
         private Label label_output;
         private Label label_info;
         private ListBox listBox_output;
+        private MaskedTextBox maskedTextBox1;
     }
 }

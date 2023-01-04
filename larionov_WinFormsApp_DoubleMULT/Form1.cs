@@ -1,4 +1,4 @@
-namespace larionov_WinFormsApp_COPY_TXT
+namespace larionov_WinFormsApp_DoubleMULT
 {
     public partial class Form1 : Form
     {
@@ -19,10 +19,10 @@ namespace larionov_WinFormsApp_COPY_TXT
 
         private void buttonSendText_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "")
+            if (maskedTextBox1.Text != "")
             {
-                listBox_output.Items.Add(textBox1.Text);
-                textBox1.Text = "";
+                listBox_output.Items.Add(maskedTextBox1.Text);
+                maskedTextBox1.Text = "";
                 label_info.Text = "";
             }
             else
