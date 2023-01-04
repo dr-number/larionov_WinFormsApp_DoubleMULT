@@ -92,6 +92,7 @@
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(484, 23);
             this.maskedTextBox1.TabIndex = 8;
+            this.maskedTextBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.maskedTextBox1_KeyUp_1);
             // 
             // Form1
             // 

@@ -21,7 +21,7 @@ namespace larionov_WinFormsApp_DoubleMULT
 
         private void buttonSendText_Click(object sender, EventArgs e)
         {
-            if (maskedTextBox1.Text == "")
+            if (maskedTextBox1.Text.Trim() == ",")
             {
                 label_info.Text = "Вы забыли ввести операнд!";
                 return;
@@ -52,12 +52,11 @@ namespace larionov_WinFormsApp_DoubleMULT
                     index2 = size - 1;
                 }
 
-                Regex reg = new Regex(@"?<=#");
-                MatchCollection operandReg1 = reg.Matches(Convert.ToString(listBox_output.Items[index1]));
-                MatchCollection operandReg2 = reg.Matches(Convert.ToString(listBox_output.Items[index2]));
+                string operandStr1 = Convert.ToString(listBox_output.Items[index1]);
+                string operandStr2 = Convert.ToString(listBox_output.Items[index2]);
 
-                double operand1 = Convert.ToDouble(operandReg1[0]);
-                double operand2 = Convert.ToDouble(operandReg2[0]);
+                double operand1 = Convert.ToDouble(operandStr1.Substring(operandStr1.IndexOf(": ") + 1));
+                double operand2 = Convert.ToDouble(operandStr2.Substring(operandStr2.IndexOf(": ") + 1));
 
                 string result = $"Результат: {operand1} * {operand2} = {operand1 * operand2}";
                 listBox_output.Items.Add(result);
@@ -72,9 +71,9 @@ namespace larionov_WinFormsApp_DoubleMULT
 
         }
 
-        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        private void maskedTextBox1_KeyUp_1(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) 
+            if (e.KeyCode == Keys.Enter)
                 buttonSendText.PerformClick();
         }
     }
